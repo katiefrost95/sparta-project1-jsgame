@@ -1,17 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
 console.log('DOM is ready');
 
-var colourBead = document.getElementsByClassName("colour");
+var computerInput = 0;
+var emptySquare = true;
 
-colourResponse();
-function colourResponse () {
-  for (var i = 0; i < colourBead.length; i++) {
-    var colBead = colourBead[i];
-    colBead.addEventListener ('click', function (event){
-    console.log(this + " was clicked");
-    })
+//making colours respond when clicked
+function colourResponse(event) {
+  console.log(event.target.id);
+  colourGridArray = $('.grid');
+  console.log(colourGridArray.length)
+  if (emptySquare = true) {
+    $(".grid").addClass(event.target.id);
+
   }
 }
 
 
-})
+$('.colour').click(colourResponse);
+
+});
