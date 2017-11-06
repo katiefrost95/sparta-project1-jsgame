@@ -9,13 +9,25 @@ function colourResponse(event) {
   console.log(event.target.id);
   colourGridArray = $('.grid');
   console.log(colourGridArray.length)
-  if (emptySquare = true) {
-    $(".grid").addClass(event.target.id);
-
+  if (emptySquare) {
+    colourGridArray.eq(0).addClass(event.target.id);
+    colourGridArray.push($(this));
+    emptySquare = false;
+  } else if (emptySquare = true) {
+    colourGridArray.eq(1).addClass(event.target.id);
+    colourGridArray.push($(this));
+    emptySquare = false;
   }
 }
-
-
 $('.colour').click(colourResponse);
+
+function compRand() {
+  var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
+  var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
+  $('compGuess').css('background',rand);
+  console.log(rand);
+}
+$('h1').click(compRand);
+
 
 });
