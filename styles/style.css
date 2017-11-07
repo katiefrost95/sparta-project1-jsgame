@@ -133,3 +133,25 @@ td {
 #orange {
   background-color: orange;
 }
+.score1 {
+  text-align: center;
+}
+.score {
+  background-color: #804000;
+}
+.redPins {
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: red;
+}
+.whitePins {
+  width: 10px;
+  height: 10px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: white;
+}
