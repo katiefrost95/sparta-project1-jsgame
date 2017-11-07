@@ -17,6 +17,7 @@ for (var i = 0; i < rows; i++) {
 var colorChoice = [];
   //making colours respond when clicked
 function colourResponse(event) {
+
   colourGridArray = $('.grid');
 
   if (colorChoice.length < 4) {
@@ -47,33 +48,41 @@ $('.score1').click(function() {
     function getResult() {
       for (var i =0; i < 4; i++) {
         if (colorChoice[i] === answer[0]) {
-          score.push(0)
+          if (colorChoice[0] === answer[0]) {
+            score.push("red")
+            $('.pinScore').css('background-color','red');
+          } else {
+            score.push("white")
+          }
         } else if (colorChoice[i] === answer[1]) {
-          score.push(1)
+          if (colorChoice[1] === answer[1]) {
+            score.push("red")
+          } else {
+            score.push("white")
+          }
         } else if (colorChoice[i] === answer[2]) {
-          score.push(2)
+          if (colorChoice[2] === answer[2]) {
+            score.push("red")
+          } else {
+            score.push("white")
+          }
         } else if (colorChoice[i] === answer[3]) {
-          score.push(3)
+          if (colorChoice[3] === answer[3]) {
+            score.push("red")
+          } else {
+            score.push("white")
+          }
         } else {
           score.push("nope");
         }
       }
+      if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
+        alert("You win");
+      }
     }
-rightPosition();
+
 getResult();
 console.log(score);
-//scoring for correct colour correct place
-  function rightPosition(){
-    if (colorChoice[0] === answer[0]) {
-      score.push(9)
-    } else if (colorChoice[1] === answer[1]) {
-      score.push(9)
-    } else if (colorChoice[2] === answer[2]) {
-      score.push(9)
-    } else if (colorChoice[3] === answer[3]) {
-      score.push(9)
-    }
-  }
 })
 //   if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
 //   $('.score2').css('background-color','red');
