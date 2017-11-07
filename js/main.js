@@ -10,9 +10,6 @@ var whitePins = [];
 var redPins = [];
 var score = [];
 
-
-
-
 //create 10 arrays with 4 elements in
 for (var i = 0; i < rows; i++) {
   nextSquare[i]=[];
@@ -29,8 +26,6 @@ function colourResponse(event) {
     col++;
     console.log(col);
   }
-
-
 }
 $('.colour').click(colourResponse);
 
@@ -46,7 +41,6 @@ function compRand() {
 $('h1').click(compRand);
 
 // Scoring
-
 $('.score1').click(function() {
   console.log(answer);
   console.log(colorChoice);
@@ -54,11 +48,33 @@ $('.score1').click(function() {
       for (var i =0; i < 4; i++) {
         if (colorChoice[i] === answer[0]) {
           score.push(0)
-        } else if ()
+        } else if (colorChoice[i] === answer[1]) {
+          score.push(1)
+        } else if (colorChoice[i] === answer[2]) {
+          score.push(2)
+        } else if (colorChoice[i] === answer[3]) {
+          score.push(3)
+        } else {
+          score.push("nope");
+        }
       }
     }
-
-}
+rightPosition();
+getResult();
+console.log(score);
+//scoring for correct colour correct place
+  function rightPosition(){
+    if (colorChoice[0] === answer[0]) {
+      score.push(9)
+    } else if (colorChoice[1] === answer[1]) {
+      score.push(9)
+    } else if (colorChoice[2] === answer[2]) {
+      score.push(9)
+    } else if (colorChoice[3] === answer[3]) {
+      score.push(9)
+    }
+  }
+})
 //   if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
 //   $('.score2').css('background-color','red');
 //     console.log("You win");
