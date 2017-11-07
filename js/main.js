@@ -48,7 +48,6 @@ $('.score1').click(function() {
         if (colorChoice[i] === answer[0]) {
           if (colorChoice[0] === answer[0]) {
             score.push("red")
-        // $('.pinScore').css('background-color','red');
           } else {
             score.push("white")
           }
@@ -77,7 +76,6 @@ $('.score1').click(function() {
       if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
         alert("You win!");
       }
-      // put in code to goto next rows
     }
 getResult();
 console.log(score);
