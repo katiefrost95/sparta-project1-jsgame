@@ -81,6 +81,7 @@ $('.score1').click(function() {
     }
 getResult();
 console.log(score);
+shuffle(score);
 for (var i = 0; i < score.length; i++) {
   if (score[i] === "white") {
     $('.pin' + (i+1+rows)).html('&#x26AA;')
@@ -93,5 +94,18 @@ colorChoice = [];
 score = [];
 rows = rows+4;
 })
+//shuffles score pins into random order.
+function shuffle (array) {
+  var i = 0
+    , j = 0
+    , temp = null
+
+  for (i = array.length - 1; i > 0; i -= 1) {
+    j = Math.floor(Math.random() * (i + 1))
+    temp = array[i]
+    array[i] = array[j]
+    array[j] = temp
+  }
+}
 
 })
