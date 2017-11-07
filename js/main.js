@@ -10,10 +10,7 @@ var whitePins = [];
 var redPins = [];
 var score = [];
 
-//create 10 arrays with 4 elements in
-for (var i = 0; i < rows; i++) {
-  nextSquare[i]=[];
-}
+// holds the current user answer
 var colorChoice = [];
   //making colours respond when clicked
 function colourResponse(event) {
@@ -28,6 +25,7 @@ function colourResponse(event) {
     console.log(col);
   }
 }
+
 $('.colour').click(colourResponse);
 
 //Computer random colour generator
@@ -50,7 +48,7 @@ $('.score1').click(function() {
         if (colorChoice[i] === answer[0]) {
           if (colorChoice[0] === answer[0]) {
             score.push("red")
-            $('.pinScore').css('background-color','red');
+        // $('.pinScore').css('background-color','red');
           } else {
             score.push("white")
           }
@@ -77,18 +75,14 @@ $('.score1').click(function() {
         }
       }
       if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
-        alert("You win");
+        alert("You win!");
       }
+      // put in code to goto next rows
     }
-
 getResult();
 console.log(score);
+colorChoice = [];
+score = [];
 })
-//   if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
-//   $('.score2').css('background-color','red');
-//     console.log("You win");
-//   }
-//   if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
-// })
 
 })

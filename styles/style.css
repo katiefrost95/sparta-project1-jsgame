@@ -137,7 +137,10 @@ td {
   text-align: center;
 }
 .pinScore{
-  background-color: #804000;
+  font-size: 13px;
+}
+.pinScore p{
+  margin: auto;
 }
 .redPins {
   width: 10px;
