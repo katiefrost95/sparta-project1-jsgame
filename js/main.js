@@ -3,7 +3,7 @@ console.log('DOM is ready');
 
 var col = 0;
 var nextSquare = [];
-var rows = 10;
+var rows = 0;
 var answer = [];
 var colorChoice = [];
 var whitePins = [];
@@ -81,8 +81,17 @@ $('.score1').click(function() {
     }
 getResult();
 console.log(score);
+for (var i = 0; i < score.length; i++) {
+  if (score[i] === "white") {
+    $('.pin' + (i+1+rows)).html('&#x26AA;')
+  }
+  if (score[i] === "red") {
+    $('.pin' + (i+1+rows)).html('&#x1F534;')
+  }
+}
 colorChoice = [];
 score = [];
+rows = rows+4;
 })
 
 })
