@@ -4,11 +4,7 @@ var col = 0;
 var nextSquare = [];
 var rows = 0;
 var answer = [];
-var colorChoice = [];
-var whitePins = [];
-var redPins = [];
 var score = [];
-var firstRound = true;
 
 // holds the current user answer
 var colorChoice = [];
@@ -16,14 +12,23 @@ var colorChoice = [];
 function colourResponse(event) {
   colourGridArray = $('.grid');
   if (colorChoice.length < 4) {
-    //colourGridArray.eq(col).addClass(event.target.id);
     colourGridArray.eq(col).html('<div class="' + event.target.id + '"></div>');
     colorChoice.push(this.id);
     col++;
+
   }
 }
 $('.colour').click(colourResponse);
 
+//Undo Button
+$('#undo').click(function(){
+  colourGridArray = $('.grid');
+  colourGridArray.eq(col).html('');
+  colorChoice.pop(this.id);
+    if (col > 0){
+      col--;
+    }
+})
 
 //Computer random colour generator
 function compRand() {
@@ -34,7 +39,7 @@ function compRand() {
 }
 console.log(answer);
 }
-$('h1').click(compRand);
+$('.firstPage').click(compRand);
 
 // Scoring
 $('.score1').click(function() {
@@ -69,16 +74,19 @@ $('.score1').click(function() {
         }
       }
       if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
-        alert("You win!");
-        answer=[];
-        colorChoice=[];
-        // score=[];
+        $('.changeSign').html("You Win!");
+        $('.compGuess0').html(answer[0]);
+        $('.compGuess1').html(answer[1]);
+        $('.compGuess2').html(answer[2]);
+        $('.compGuess3').html(answer[3]);
+
       }
       if (rows > 32) {
-        alert("You Lose");
-        answer=[];
-        colorChoice=[];
-        // score=[];
+        $('.changeSign').html("You lose!");
+        $('.compGuess0').html(answer[0]);
+        $('.compGuess1').html(answer[1]);
+        $('.compGuess2').html(answer[2]);
+        $('.compGuess3').html(answer[3]);
       }
     }
 getResult();
@@ -113,7 +121,8 @@ function shuffle (array) {
     array[j] = temp
   }
 }
-$('h2').click(function() {
+//Reset Button
+$('#reset').click(function() {
   location.reload();
 })
 
