@@ -1,0 +1,147 @@
+.container {
+  width: 600px;
+}
+.col-md-12 {
+  background-color: red;
+  height: 50px;
+  font-size: 35px;
+  text-align: center;
+  font-weight: bold;
+}
+.col-md-8{
+  height:650px;
+  margin:auto;
+  display: block;
+}
+h1 {
+  font-size: 23px;
+  width: 150px;
+  margin-left: 30px;
+}
+td {
+  border: 1px solid grey;
+  width: 50px;
+  height: 50px;
+}
+.compGuess {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.turn {
+  font-size: 25px;
+  text-align: center;
+}
+.grid {
+  border:5px solid green;
+}
+.colour {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background: red;
+}
+
+.red {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: red;
+}
+.yellow {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: yellow;
+}
+.green{
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: green;
+}
+.blue{
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: blue;
+}
+.grey{
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: grey;
+}
+.pink{
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: pink;
+}
+.black {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: black;
+}
+.orange {
+  width: 50px;
+  height: 50px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  background-color: orange;
+}
+#red {
+  background-color: red;
+}
+#yellow {
+  background-color: yellow;
+}
+#green {
+  background-color: green;
+}
+#blue {
+  background-color: blue;
+}
+#grey {
+  background-color: grey;
+}
+#pink{
+  background-color: pink;
+}
+#black {
+  background-color: black;
+}
+#orange {
+  background-color: orange;
+}
+.score1 {
+  text-align: center;
+}
+.pinScore{
+  font-size: 13px;
+}
+.pinScore p{
+  margin: auto;
+}
+.right {
+  display: block;
+  float: left;
+}
