@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-console.log('DOM is ready');
 
 var col = 0;
 var nextSquare = [];
@@ -20,9 +19,7 @@ function colourResponse(event) {
   if (colorChoice.length < 4) {
     colourGridArray.eq(col).addClass(event.target.id);
     colorChoice.push(this.id);
-    console.log(colorChoice);
     col++;
-    console.log(col);
   }
 }
 
@@ -34,15 +31,12 @@ function compRand() {
   for (var i = 0; i < 4; i++) {
   var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
   answer.push(rand);
-  console.log(answer);
 }
 }
 $('h1').click(compRand);
 
 // Scoring
 $('.score1').click(function() {
-  console.log(answer);
-  console.log(colorChoice);
     function getResult() {
       for (var i =0; i < 4; i++) {
         if (colorChoice[i] === answer[0]) {
@@ -76,10 +70,13 @@ $('.score1').click(function() {
       if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
         alert("You win!");
       }
+      if (rows > 32) {
+        alert("You Lose");
+      }
     }
 getResult();
-console.log(score);
 shuffle(score);
+//getting score pins to show
 for (var i = 0; i < score.length; i++) {
   if (score[i] === "white") {
     $('.pin' + (i+1+rows)).html('&#x26AA;')
