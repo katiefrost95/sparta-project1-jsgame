@@ -1,29 +1,51 @@
+
 .container {
   width: 600px;
+  height:620px;
+  background-image:url("../images/wood.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-.col-md-12 {
-  background-color: red;
-  height: 50px;
-  font-size: 35px;
-  text-align: center;
-  font-weight: bold;
-}
-.col-md-8{
 
-  height:650px;
+table {
   margin:auto;
+  border-radius: 15px;
+  margin-top: 27px;
+}
+.row {
+  margin:auto;
+}
+
+.col-md-12{
+  height:590px;
   display: block;
 }
-h1 {
+h1.firstPage {
   font-size: 23px;
   width: 150px;
   margin-left: 30px;
+  display:inline-block;
+}
+h1 {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 20px;
+  font-size: 80px;
+}
+h2 {
+  background-color: none;
+  display:inline-block;
 }
 td {
-  border: 1px solid grey;
+  border: 1px ridge grey;
   width: 50px;
   height: 50px;
 }
+.grid {
+  border:2px solid black;
+}
+
 .compGuess {
   font-size: 25px;
   text-align: center;
@@ -32,10 +54,9 @@ td {
 .turn {
   font-size: 25px;
   text-align: center;
+  color:
 }
-.grid {
-  border:5px solid green;
-}
+/*COLOUR GUESS*/
 .colour {
   width: 50px;
   height: 50px;
@@ -43,6 +64,11 @@ td {
   -moz-border-radius: 25px;
   border-radius: 25px;
   background: red;
+  display: inline-block;
+  margin: auto;
+}
+.colourCenter {
+  text-align: center;
 }
 
 .red {
@@ -52,6 +78,7 @@ td {
   -moz-border-radius: 25px;
   border-radius: 25px;
   background-color: red;
+  padding:5px;
 }
 .yellow {
   width: 50px;
@@ -133,6 +160,7 @@ td {
 #orange {
   background-color: orange;
 }
+/*SCORES*/
 .score1 {
   text-align: center;
 }

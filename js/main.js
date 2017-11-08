@@ -14,12 +14,10 @@ var firstRound = true;
 var colorChoice = [];
   //making colours respond when clicked
 function colourResponse(event) {
-  while (true) {
-
-  }
   colourGridArray = $('.grid');
   if (colorChoice.length < 4) {
-    colourGridArray.eq(col).addClass(event.target.id);
+    //colourGridArray.eq(col).addClass(event.target.id);
+    colourGridArray.eq(col).html('<div class="' + event.target.id + '"></div>');
     colorChoice.push(this.id);
     col++;
   }
@@ -89,11 +87,13 @@ console.log(score)
 shuffle(score);
 //getting score pins to show
 for (var i = 0; i < score.length; i++) {
+  var pinNumber = i+1+rows;
+  console.log(pinNumber);
   if (score[i] === "white") {
-    $('.pin' + (i+1+rows)).html('&#x26AA;')
+    $('.pin' + pinNumber).html('&#x26AA;')
   }
   if (score[i] === "red") {
-    $('.pin' + (i+1+rows)).html('&#x1F534;')
+    $('.pin' + pinNumber).html('&#x1F534;')
   }
 }
 colorChoice = [];
@@ -113,5 +113,8 @@ function shuffle (array) {
     array[j] = temp
   }
 }
+$('h2').click(function() {
+  location.reload();
+})
 
 })
