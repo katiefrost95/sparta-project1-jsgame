@@ -9,6 +9,7 @@
   font-weight: bold;
 }
 .col-md-8{
+
   height:650px;
   margin:auto;
   display: block;
@@ -140,8 +141,13 @@ td {
 }
 .pinScore p{
   margin: auto;
+  margin-left: 5px;
+}
+.left {
+  display: inline;
+  float: left;
 }
 .right {
-  display: block;
-  float: left;
+  display: inline;
+  float:left;
 }

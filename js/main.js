@@ -8,22 +8,24 @@ var colorChoice = [];
 var whitePins = [];
 var redPins = [];
 var score = [];
+var firstRound = true;
 
 // holds the current user answer
 var colorChoice = [];
   //making colours respond when clicked
 function colourResponse(event) {
+  while (true) {
 
+  }
   colourGridArray = $('.grid');
-
   if (colorChoice.length < 4) {
     colourGridArray.eq(col).addClass(event.target.id);
     colorChoice.push(this.id);
     col++;
   }
 }
-
 $('.colour').click(colourResponse);
+
 
 //Computer random colour generator
 function compRand() {
@@ -32,6 +34,7 @@ function compRand() {
   var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
   answer.push(rand);
 }
+console.log(answer);
 }
 $('h1').click(compRand);
 
@@ -69,12 +72,20 @@ $('.score1').click(function() {
       }
       if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
         alert("You win!");
+        answer=[];
+        colorChoice=[];
+        // score=[];
       }
       if (rows > 32) {
         alert("You Lose");
+        answer=[];
+        colorChoice=[];
+        // score=[];
       }
     }
 getResult();
+console.log(score)
+
 shuffle(score);
 //getting score pins to show
 for (var i = 0; i < score.length; i++) {
