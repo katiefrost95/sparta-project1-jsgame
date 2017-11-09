@@ -36,7 +36,8 @@ h1 {
   display:inline-block;
   margin-top: -70px;
   margin-bottom: 30px;
-  color:purple;
+  color:transparent;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 td {
   border: none;
@@ -253,4 +254,20 @@ a {
 .right {
   display: inline;
   float:left;
+}
+/*INSTRUCTIONS PAGE*/
+.instructions {
+  width: 684px;
+  background-image: url("../images/instructionsboard.jpg");
+  background-size: 700px 450px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.instructions p{
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  /*font-weight: bold;*/
+  color:white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

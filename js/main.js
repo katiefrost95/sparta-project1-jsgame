@@ -1,129 +1,124 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-var col = 0;
-var nextSquare = [];
-var rows = 0;
-var answer = [];
-var score = [];
+  var col = 0;
+  var nextSquare = [];
+  var rows = 0;
+  var answer = [];
+  var score = [];
 
-// holds the current user answer
-var colorChoice = [];
-  //making colours respond when clicked
-function colourResponse(event) {
-  colourGridArray = $('.grid');
-  if (colorChoice.length < 4) {
-    colourGridArray.eq(col).html('<div class="' + event.target.id + '"></div>');
-    colorChoice.push(this.id);
-    col++;
-
-  }
-}
-$('.colour').click(colourResponse);
-
-//Undo Button
-$('#undo').click(function(){
-  colourGridArray = $('.grid');
-  colourGridArray.eq(col).html('');
-  colorChoice.pop(this.id);
-    if (col > 0){
-      col--;
+  // holds the current user answer
+  var colorChoice = [];
+    //making colours respond when clicked
+  function colourResponse(event) {
+    colourGridArray = $('.grid');
+    if (colorChoice.length < 4) {
+      colourGridArray.eq(col).html('<div class="' + event.target.id + '"></div>');
+      colorChoice.push(this.id);
+      col++;
     }
-})
+  }
+  $('.colour').click(colourResponse);
 
-//Computer random colour generator
-function compRand() {
-  var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
-  for (var i = 0; i < 4; i++) {
-  var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
-  answer.push(rand);
-}
-console.log(answer);
-}
-$('.firstPage').click(compRand);
+  //Undo Button
+  $('#undo').click(function(){
 
-// Scoring
-$('.score1').click(function() {
-    function getResult() {
-      for (var i =0; i < 4; i++) {
-        if (colorChoice[i] === answer[0]) {
-          if (colorChoice[0] === answer[0]) {
-            score.push("red")
+    colourGridArray = $('.grid');
+    colourGridArray.eq(col).html('');
+    colorChoice.pop(this.id);
+      if (col > 1){
+        col--;
+      }
+  })
+
+  //Computer random colour generator
+  function compRand() {
+    var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
+    for (var i = 0; i < 4; i++) {
+    var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
+    answer.push(rand);
+  }
+  console.log(answer);
+  }
+  $('.firstPage').click(compRand);
+
+  // Scoring
+  $('.score1').click(function() {
+      function getResult() {
+        for (var i =0; i < 4; i++) {
+          if (colorChoice[i] === answer[0]) {
+            if (colorChoice[0] === answer[0]) {
+              score.push("red")
+            } else {
+              score.push("white")
+            }
+          } else if (colorChoice[i] === answer[1]) {
+            if (colorChoice[1] === answer[1]) {
+              score.push("red")
+            } else {
+              score.push("white")
+            }
+          } else if (colorChoice[i] === answer[2]) {
+            if (colorChoice[2] === answer[2]) {
+              score.push("red")
+            } else {
+              score.push("white")
+            }
+          } else if (colorChoice[i] === answer[3]) {
+            if (colorChoice[3] === answer[3]) {
+              score.push("red")
+            } else {
+              score.push("white")
+            }
           } else {
-            score.push("white")
+            score.push("nope");
           }
-        } else if (colorChoice[i] === answer[1]) {
-          if (colorChoice[1] === answer[1]) {
-            score.push("red")
-          } else {
-            score.push("white")
-          }
-        } else if (colorChoice[i] === answer[2]) {
-          if (colorChoice[2] === answer[2]) {
-            score.push("red")
-          } else {
-            score.push("white")
-          }
-        } else if (colorChoice[i] === answer[3]) {
-          if (colorChoice[3] === answer[3]) {
-            score.push("red")
-          } else {
-            score.push("white")
-          }
-        } else {
-          score.push("nope");
+        }
+        if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
+          $('h1').html("You Win!").css();
+        }
+        if (rows > 32) {
+          $('h1').html("You lose!");
+          $('.compGuess0').html(answer[0]);
+          $('.compGuess1').html(answer[1]);
+          $('.compGuess2').html(answer[2]);
+          $('.compGuess3').html(answer[3]);
         }
       }
-      if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
-        $('.changeSign').html("You Win!");
-        $('.compGuess0').html(answer[0]);
-        $('.compGuess1').html(answer[1]);
-        $('.compGuess2').html(answer[2]);
-        $('.compGuess3').html(answer[3]);
+  getResult();
+  console.log(score)
 
-      }
-      if (rows > 32) {
-        $('.changeSign').html("You lose!");
-        $('.compGuess0').html(answer[0]);
-        $('.compGuess1').html(answer[1]);
-        $('.compGuess2').html(answer[2]);
-        $('.compGuess3').html(answer[3]);
-      }
+  shuffle(score);
+  //getting score pins to show
+  for (var i = 0; i < score.length; i++) {
+    var pinNumber = i+1+rows;
+    console.log(pinNumber);
+    if (score[i] === "white") {
+      $('.pin' + pinNumber).html('&#x26AA;')
     }
-getResult();
-console.log(score)
+    if (score[i] === "red") {
+      $('.pin' + pinNumber).html('&#x1F534;')
+    }
+  }
+  colorChoice = [];
+  score = [];
+  rows = rows+4;
+  })
+  //shuffles score pins into random order.
+  function shuffle (array) {
+    var i = 0
+      , j = 0
+      , temp = null
 
-shuffle(score);
-//getting score pins to show
-for (var i = 0; i < score.length; i++) {
-  var pinNumber = i+1+rows;
-  console.log(pinNumber);
-  if (score[i] === "white") {
-    $('.pin' + pinNumber).html('&#x26AA;')
+    for (i = array.length - 1; i > 0; i -= 1) {
+      j = Math.floor(Math.random() * (i + 1))
+      temp = array[i]
+      array[i] = array[j]
+      array[j] = temp
+    }
   }
-  if (score[i] === "red") {
-    $('.pin' + pinNumber).html('&#x1F534;')
-  }
-}
-colorChoice = [];
-score = [];
-rows = rows+4;
-})
-//shuffles score pins into random order.
-function shuffle (array) {
-  var i = 0
-    , j = 0
-    , temp = null
-
-  for (i = array.length - 1; i > 0; i -= 1) {
-    j = Math.floor(Math.random() * (i + 1))
-    temp = array[i]
-    array[i] = array[j]
-    array[j] = temp
-  }
-}
-//Reset Button
-$('#reset').click(function() {
-  location.reload();
-})
+  //Reset Button
+  $('#reset').click(function() {
+    location.reload();
+  })
 
 })
