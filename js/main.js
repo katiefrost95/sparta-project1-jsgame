@@ -4,10 +4,11 @@ document.addEventListener("DOMContentLoaded", function() {
   var nextSquare = [];
   var rows = 0;
   var answer = [];
-  var score = [];
+  var score = ["false","false","false","false"];
   var colorChoice = [];
   var clickAudio = new Audio();
   var runGame = false; //variable so game can't begin till start button clicked
+  var array4 = ["clear","clear","clear","clear"]
 
   //calling Functions
   setUpEventListeners();
@@ -44,15 +45,15 @@ document.addEventListener("DOMContentLoaded", function() {
   function compRand() {
     playAudio();
     var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
-    var tempArray = colourOps,i,r;
+    // var tempArray = colourOps,i,r;
     for (var i = 0; i < 4; i++) {
-      r = colourOps[Math.floor(Math.random() * colourOps.length)];
-      if (tempArray[r] === undefined) {
-        answer.push(r);
-        tempArray[r] = true;
-      } else {
-        i--;
-      }
+      var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
+      // if (tempArray[r] === undefined) {
+        answer.push(rand);
+      //   tempArray[r] = true;
+      // } else {
+      //   i--;
+      // }
       runGame=true;
     }
   console.log(answer);
@@ -85,47 +86,33 @@ document.addEventListener("DOMContentLoaded", function() {
       //getting score pins to show
       pushOrPullPins();
       colorChoice = [];
-      score = [];
+      score = ["false","false","false","false"];
       rows = rows+4;
+      array4 = ["clear","clear","clear","clear"]
     })
   }
 
   setScoringEventListener();
 
+  //Comparing arrays to return score
   function getResult() {
-    for (var i =0; i < 4; i++) {
-      if (colorChoice[i] === answer[0]) {
-        if (colorChoice[0] === answer[0]) {
-          score.push("red")
-          console.log(answer)
+    for (var i = 0; i < answer.length; i++) {
+      for (var j = 0; j < answer.length; j++) {
+        if ((colorChoice[i] === answer[j]) && (i === j) ) {
+          if(score[i] === "white" || score[i] === "false"){
+            score[j] = "red";
+            array4[i] = "used"
+          }
         } else {
-          score.push("white")
+            if ((colorChoice[i] === answer[j]) && (!(i === j)) && !(array4[i] === "used")){
+              if(score[j] === "false"){
+                score[j] = "white";
+	             break;
+              }
+	          }
+          }
         }
-      } else if (colorChoice[i] === answer[1]) {
-        if (colorChoice[1] === answer[1]) {
-          score.push("red")
-          console.log(answer)
-        } else {
-          score.push("white")
-        }
-      } else if (colorChoice[i] === answer[2]) {
-        if (colorChoice[2] === answer[2]) {
-          score.push("red")
-          console.log(answer)
-        } else {
-          score.push("white")
-        }
-      } else if (colorChoice[i] === answer[3]) {
-        if (colorChoice[3] === answer[3]) {
-          score.push("red")
-          console.log(answer)
-        } else {
-          score.push("white")
-        }
-      } else {
-        score.push("nope");
       }
-    }
     if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
       $('h1').html("You Win!");
       $('.compGuess0').css({'color': answer[0] });
