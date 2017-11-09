@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var score = [];
   var colorChoice = [];
   var otherAnswerArray = []
+  var clickAudio = new Audio();
 
   setUpEventListeners();
   startGame();
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //Computer random colour generator
   function compRand() {
+    playAudio();
     var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
     for (var i = 0; i < 4; i++) {
       var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
@@ -68,16 +70,11 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log(otherAnswerArray)
   }
 
-  //Play Sound
-  // $(document).ready(function() {
-  //       var obj = document.createElement("audio");
-  //       obj.setAttribute("src", "click.wav");
-  //       $.get();
-  //
-  //       $("#firstPage").click(function() {
-  //           obj.play();
-  //       });
-  // });
+  // Play Sound
+  function playAudio(){
+    var backgroundMusic = new Audio('Sounds/click.wav');
+    backgroundMusic.play();
+  }
 
   function setScoringEventListener(){
     // Scoring
