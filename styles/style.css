@@ -80,6 +80,23 @@ a {
   font-weight: bold;
   color: white;
 }
+
+#undo:hover {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: underline;
+}
+#firstPage:hover {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: underline;
+}
+#score1:hover {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: underline;
+}
+
 /*Signpost2*/
 #signpost2 {
   display:inline-block;
@@ -124,7 +141,6 @@ a {
 .turn {
   font-size: 25px;
   text-align: center;
-  color:
 }
 /*COLOUR GUESS*/
 .colour {
@@ -261,7 +277,6 @@ a {
   font-size: 17px;
   margin-top: 10px;
   margin-bottom: 100px;
-  /*font-weight: bold;*/
   color:white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

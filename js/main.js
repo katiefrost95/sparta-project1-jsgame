@@ -33,18 +33,9 @@ document.addEventListener("DOMContentLoaded", function() {
       location.reload();
     })
 
-    //Mouse over link function
-    $('.mouseOver').mouseover(hoverResponse);
-  }
-
   function startGame() {
     //shuffle pins
     shuffle(score);
-  }
-
-  //changing mouse to clicker over links
-  function hoverResponse(event) {
-    $('.mouseOver').css('cursor', 'pointer');
   }
 
   //making colours respond when clicked
