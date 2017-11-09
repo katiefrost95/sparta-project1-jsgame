@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", function() {
       // }
       runGame=true;
     }
-  console.log(answer);
   }
 
   //making colours respond when clicked
@@ -80,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function() {
   function setScoringEventListener(){
     // Scoring
     $('#score1').click(function (){
-      console.log(score)
       getResult();
 
       //getting score pins to show
@@ -129,14 +127,12 @@ document.addEventListener("DOMContentLoaded", function() {
       $('.compGuess3').css({'color': answer[3] });
       runGame = false;
     }
-    console.log(answer)
   }
 
   //pushing pin colours into scores
   function pushOrPullPins() {
     for (var i = 0; i < score.length; i++) {
       var pinNumber = i+1+rows;
-      console.log(pinNumber);
       if (score[i] === "white") {
         $('.pin' + pinNumber).html('&#x26AA;')
       }
