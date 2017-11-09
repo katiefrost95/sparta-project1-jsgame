@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 
     //Mouse over link function
-    $('.mouseOver').hover(hoverResponse);
+    $('.mouseOver').mouseover(hoverResponse);
   }
 
   function startGame() {
@@ -67,6 +67,17 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log(answer);
   console.log(otherAnswerArray)
   }
+
+  //Play Sound
+  // $(document).ready(function() {
+  //       var obj = document.createElement("audio");
+  //       obj.setAttribute("src", "click.wav");
+  //       $.get();
+  //
+  //       $("#firstPage").click(function() {
+  //           obj.play();
+  //       });
+  // });
 
   function setScoringEventListener(){
     // Scoring
@@ -120,13 +131,17 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     if ((answer[0] === colorChoice[0]) && (answer[1] === colorChoice[1]) && (answer[2] === colorChoice[2]) &&  (answer[3] === colorChoice[3])) {
       $('h1').html("You Win!");
+      $('.compGuess0').css({'color': answer[0] });
+      $('.compGuess1').css({'color': answer[1] });
+      $('.compGuess2').css({'color': answer[2] });
+      $('.compGuess3').css({'color': answer[3] });
     }
     if (rows > 32) {
       $('h1').html("You lose!");
-      $('.compGuess0').html(answer[0]);
-      $('.compGuess1').html(answer[1]);
-      $('.compGuess2').html(answer[2]);
-      $('.compGuess3').html(answer[3]);
+      $('.compGuess0').css({'color': answer[0] });
+      $('.compGuess1').css({'color': answer[1] });
+      $('.compGuess2').css({'color': answer[2] });
+      $('.compGuess3').css({'color': answer[3] });
     }
     answer = otherAnswerArray;
     console.log(answer)
