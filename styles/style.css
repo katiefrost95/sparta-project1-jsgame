@@ -46,7 +46,7 @@ td {
 /*Signpost1*/
 #signpost1 {
   display:inline-block;
-  margin: 15px 0 0 30px;
+  margin: 15px 0 0 145px;
   background-image: url("../images/signpost1.png");
   background-size: cover;
   background-position: center;
@@ -100,7 +100,7 @@ a {
 /*Signpost2*/
 #signpost2 {
   display:inline-block;
-  margin: 15px 55px 0 0;
+  margin: 15px 145px 0 0;
   background-image: url("../images/signpost2.png");
   background-size: cover;
   background-position: center;
@@ -274,7 +274,7 @@ a {
   background-repeat: no-repeat;
 }
 .instructions p{
-  font-size: 17px;
+  font-size: 18px;
   margin-top: 10px;
   margin-bottom: 100px;
   color:white;

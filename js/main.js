@@ -6,9 +6,10 @@ document.addEventListener("DOMContentLoaded", function() {
   var answer = [];
   var score = [];
   var colorChoice = [];
-  var otherAnswerArray = []
   var clickAudio = new Audio();
+  var runGame = false; //variable so game can't begin till start button clicked
 
+  //calling Functions
   setUpEventListeners();
   startGame();
   function setUpEventListeners() {
@@ -21,44 +22,52 @@ document.addEventListener("DOMContentLoaded", function() {
     //Undo Button
     $('#undo').click(function(){
       colourGridArray = $('.grid');
-      colourGridArray.eq(col).html('');
-      colorChoice.pop(this.id);
         if (col > 1){
           col--;
         }
+      colourGridArray.eq(col).html('');
+      colorChoice.pop(this.id);
     })
 
     //Reset Button
     $('#reset').click(function() {
       location.reload();
     })
+  }
 
   function startGame() {
     //shuffle pins
     shuffle(score);
   }
 
-  //making colours respond when clicked
-  function colourResponse(event) {
-    colourGridArray = $('.grid');
-    if (colorChoice.length < 4) {
-      colourGridArray.eq(col).html('<div class="' + event.target.id + '"></div>');
-      colorChoice.push(this.id);
-      col++;
-    }
-  }
-
   //Computer random colour generator
   function compRand() {
     playAudio();
     var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
+    var tempArray = colourOps,i,r;
     for (var i = 0; i < 4; i++) {
-      var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
-      answer.push(rand);
-      otherAnswerArray.push(rand)
+      r = colourOps[Math.floor(Math.random() * colourOps.length)];
+      if (tempArray[r] === undefined) {
+        answer.push(r);
+        tempArray[r] = true;
+      } else {
+        i--;
+      }
+      runGame=true;
     }
   console.log(answer);
-  console.log(otherAnswerArray)
+  }
+
+  //making colours respond when clicked
+  function colourResponse(event) {
+    if (runGame) {
+    colourGridArray = $('.grid');
+      if (colorChoice.length < 4) {
+        colourGridArray.eq(col).html('<div class="' + event.target.id + '"></div>');
+        colorChoice.push(this.id);
+        col++;
+      }
+    }
   }
 
   // Play Sound
@@ -123,6 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
       $('.compGuess1').css({'color': answer[1] });
       $('.compGuess2').css({'color': answer[2] });
       $('.compGuess3').css({'color': answer[3] });
+      runGame = false;
     }
     if (rows > 32) {
       $('h1').html("You lose!");
@@ -130,11 +140,12 @@ document.addEventListener("DOMContentLoaded", function() {
       $('.compGuess1').css({'color': answer[1] });
       $('.compGuess2').css({'color': answer[2] });
       $('.compGuess3').css({'color': answer[3] });
+      runGame = false;
     }
-    answer = otherAnswerArray;
     console.log(answer)
   }
 
+  //pushing pin colours into scores
   function pushOrPullPins() {
     for (var i = 0; i < score.length; i++) {
       var pinNumber = i+1+rows;
