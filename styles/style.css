@@ -1,40 +1,147 @@
+body {
+  background-color: white;
+}
 .container {
-  width: 600px;
-}
-.col-md-12 {
-  background-color: red;
-  height: 50px;
-  font-size: 35px;
   text-align: center;
-  font-weight: bold;
 }
-.col-md-8{
-  height:650px;
+.gridBackground {
+  width: 600px;
+  height:620px;
+  background-image:url("../images/wood.jpg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: auto;
+}
+table {
   margin:auto;
+  border-radius: 15px;
+  margin-top: 27px;
+}
+.row {
+  margin:auto;
+}
+.col-md-12{
+  height:590px;
   display: block;
 }
 h1 {
-  font-size: 23px;
-  width: 150px;
-  margin-left: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 80px;
+  display:inline-block;
+  margin-top: -70px;
+  margin-bottom: 30px;
+  color:transparent;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 td {
-  border: 1px solid grey;
+  border: none;
   width: 50px;
   height: 50px;
 }
-.compGuess {
+.grid {
+  border:2px solid black;
+}
+/*Signpost1*/
+#signpost1 {
+  display:inline-block;
+  margin: 15px 0 0 145px;
+  background-image: url("../images/signpost1.png");
+  background-size: cover;
+  background-position: center;
+  height: 155px;
+  width: 303px;
+  text-align: center;
+}
+#firstPage {
+  font-size: 20px;
+  display:block;
+  margin-top: 33px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0px;
+}
+#reset {
+  background-color: none;
+  display:block;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0px;
+}
+a {
+  color: white;
+}
+#undo {
+  background-color: none;
+  display:block;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+#undo:hover {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: underline;
+}
+#firstPage:hover {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: underline;
+}
+#score1:hover {
+  cursor: pointer;
+  color: #337ab7;
+  text-decoration: underline;
+}
+/*Signpost2*/
+#signpost2 {
+  display:inline-block;
+  margin: 15px 145px 0 0;
+  background-image: url("../images/signpost2.png");
+  background-size: cover;
+  background-position: center;
+  height: 155px;
+  width: 303px;
+  text-align: center;
+  float: right;
+}
+.changeSign {
+  display:block;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  margin-top: 55px;
+}
+/*Computer X's*/
+.compGuess0 {
   font-size: 25px;
   text-align: center;
   font-weight: bold;
 }
+.compGuess1 {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.compGuess2 {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+.compGuess3 {
+  font-size: 25px;
+  text-align: center;
+  font-weight: bold;
+}
+/*Number row*/
 .turn {
   font-size: 25px;
   text-align: center;
 }
-.grid {
-  border:5px solid green;
-}
+/*COLOUR GUESS*/
 .colour {
   width: 50px;
   height: 50px;
@@ -42,15 +149,21 @@ td {
   -moz-border-radius: 25px;
   border-radius: 25px;
   background: red;
+  display: inline-block;
+  margin: auto;
 }
-
+.colourCenter {
+  text-align: center;
+  margin-top: 20px;
+}
 .red {
   width: 50px;
   height: 50px;
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background-color: red;
+  background-color: #D81817;
+  padding:5px;
 }
 .yellow {
   width: 50px;
@@ -58,7 +171,7 @@ td {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background-color: yellow;
+  background-color: rgba(255, 238, 12, 1);;
 }
 .green{
   width: 50px;
@@ -90,7 +203,7 @@ td {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background-color: pink;
+  background-color: rgba(255, 77, 123, 0.73);
 }
 .black {
   width: 50px;
@@ -106,13 +219,13 @@ td {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
   border-radius: 25px;
-  background-color: orange;
+  background-color: #ff7800;
 }
 #red {
-  background-color: red;
+  background-color: #D81817;
 }
 #yellow {
-  background-color: yellow;
+  background-color: rgba(255, 238, 12, 1);;
 }
 #green {
   background-color: green;
@@ -124,15 +237,16 @@ td {
   background-color: grey;
 }
 #pink{
-  background-color: pink;
+  background-color: rgba(255, 77, 123, 0.73);
 }
 #black {
   background-color: black;
 }
 #orange {
-  background-color: orange;
+  background-color: #ff7800;
 }
-.score1 {
+/*SCORE PINS*/
+#score1 {
   text-align: center;
 }
 .pinScore{
@@ -140,8 +254,28 @@ td {
 }
 .pinScore p{
   margin: auto;
+  margin-left: 5px;
+}
+.left {
+  display: inline;
+  float: left;
 }
 .right {
-  display: block;
-  float: left;
+  display: inline;
+  float:left;
+}
+/*INSTRUCTIONS PAGE*/
+.instructions {
+  width: 684px;
+  background-image: url("../images/instructionsboard.jpg");
+  background-size: 700px 450px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.instructions p{
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  color:white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
