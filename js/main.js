@@ -45,15 +45,9 @@ document.addEventListener("DOMContentLoaded", function() {
   function compRand() {
     playAudio();
     var colourOps = ["red", "yellow", "green", "blue", "grey", "pink", "black", "orange"];
-    // var tempArray = colourOps,i,r;
     for (var i = 0; i < 4; i++) {
       var rand = colourOps[Math.floor(Math.random() * colourOps.length)];
-      // if (tempArray[r] === undefined) {
-        answer.push(rand);
-      //   tempArray[r] = true;
-      // } else {
-      //   i--;
-      // }
+      answer.push(rand);
       runGame=true;
     }
   }
